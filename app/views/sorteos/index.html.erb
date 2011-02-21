@@ -1,0 +1,21 @@
+<h1>Listing sorteos</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sorteos.each do |sorteo| %>
+  <tr>
+    <td><%= link_to 'Show', sorteo %></td>
+    <td><%= link_to 'Edit', edit_sorteo_path(sorteo) %></td>
+    <td><%= link_to 'Destroy', sorteo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sorteo', new_sorteo_path %>

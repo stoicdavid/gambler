@@ -1,0 +1,21 @@
+<h1>Listing boletos</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boletos.each do |boleto| %>
+  <tr>
+    <td><%= link_to 'Show', boleto %></td>
+    <td><%= link_to 'Edit', edit_boleto_path(boleto) %></td>
+    <td><%= link_to 'Destroy', boleto, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Boleto', new_boleto_path %>

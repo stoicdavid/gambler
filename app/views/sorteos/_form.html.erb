@@ -1,0 +1,17 @@
+<%= form_for(@sorteo) do |f| %>
+  <% if @sorteo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sorteo.errors.count, "error") %> prohibited this sorteo from being saved:</h2>
+
+      <ul>
+      <% @sorteo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

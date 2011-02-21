@@ -1,0 +1,30 @@
+# == Schema Information
+# Schema version: 20110221052338
+#
+# Table name: boletos
+#
+#  id         :integer(4)      not null, primary key
+#  folio      :integer(4)
+#  nombre     :string(255)
+#  rfc        :string(255)
+#  dir        :string(255)
+#  cp         :string(255)
+#  ciudad     :string(255)
+#  telefono   :string(255)
+#  email      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  block_id   :integer(4)      not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value
