@@ -2,13 +2,53 @@
 <html>
 <head>
   <title>Gambler</title>
-  <%= stylesheet_link_tag :all %>
-  <%# javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag "default" %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
-<%= yield %>
+
+
+<div id="header">
+	<%= image_tag "paloma1.png", :class => "parallax"  %>
+	<h1><a href="http://educacionintegral.org">Instituto Juan Pablo II</a></h1>
+	<h2><a href="http://educacionintegral.org">Instituto de Educación Integral I.A.P.</a></h2>
+
+</div>
+<!-- end #header -->
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h1 class="title"><span>BIENVENIDOS</span></h1>
+			<%= image_tag "JuanPabloII.jpg",:size => "120x120",:class =>"left"  %>
+			<%= yield %>
+		</div>
+	</div>
+	<!-- end #content -->
+	<div id="sidebar">
+		<div id="menu" class="box">
+			<h2 class="title">Menu</h2>
+			<ul>
+				<li class="first"><a href="#">Home</a></li>
+				<li><a href="#">Products</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Forums</a></li>
+				<li><a href="#">Support</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+	<p id="legal">Copyright &copy; 2011 Diseñado por David Rodríguez</a>.</p>
+</div>
+<!-- end #footer -->
 
 </body>
 </html>

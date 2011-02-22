@@ -23,5 +23,6 @@ Gambler::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.serve_static_assets = true
 end
 
