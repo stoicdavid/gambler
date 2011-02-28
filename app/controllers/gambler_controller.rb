@@ -1,5 +1,5 @@
 class GamblerController < ApplicationController
-  skip_authorization_check :only => :index
+load_and_authorize_resource
   def index
     @sorteos = Sorteo.all
   end

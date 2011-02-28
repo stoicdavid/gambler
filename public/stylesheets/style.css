@@ -46,6 +46,18 @@ p{
 	text-shadow: rgba(0, 0, 255, 0.90) 0 0 2px;	
 }
 
+#flasherror{
+	width:400px;
+	background: #FF9A89;
+	border-top: 2px solid #FF393F;
+	border-bottom: 2px solid #FF393F;
+	text-align: center;
+	margin: 10px auto;
+	padding: 5px 20px;
+	color: #FFF;
+	text-shadow: rgba(0, 0, 255, 0.90) 0 0 2px;	
+}
+
 #header {
 	margin: 50px 0px 0px 0px;
 	background: #fff url(../images/clouds.jpg) no-repeat center;

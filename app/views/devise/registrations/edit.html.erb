@@ -9,28 +9,33 @@
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
 
-  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <p><%= f.label :contraseña %> <i>(déjalo en blanco si no quieres actualizar)</i><br />
   <%= f.password_field :password %></p>
 
-  <p><%= f.label :password_confirmation %><br />
+  <p><%= f.label :confirma_contraseña %><br />
   <%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <p><%= f.label :contraseña_actual %> <i>(es necesaria tu contraseña actual para actualizar)</i><br />
   <%= f.password_field :current_password %></p>
 <p>
 	<%= f.label :rol %><br /><br />
 	<% for rol in Usuario::ROLES %>
+	<% if (can? :create, resource && (rol == 'admin')) %>
 	<%= check_box_tag "usuario[roles][]",rol, resource.roles.include?(rol) %>
 	<%= rol.humanize %>
+	<% elsif rol != 'admin'  %>
+	<%= check_box_tag "usuario[roles][]",rol, resource.roles.include?(rol) %>
+	<%= rol.humanize %>
+	<% end %>
 	<% end %>
 	<%= hidden_field_tag "usuario[roles][]" %>
 </p>
 
-  <p><%= f.submit "Update" %></p>
+  <p><%= f.submit "Actualizar" %></p>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Cancelar mi cuenta</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+<p>¿Descontento? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "¿Estás seguro?", :method => :delete %>.</p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Regresar", :back %>

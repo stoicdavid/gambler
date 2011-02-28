@@ -1,4 +1,5 @@
 class SorteosController < ApplicationController
+  before_filter :authenticate_usuario!
   load_and_authorize_resource
   # GET /sorteos
   # GET /sorteos.xml

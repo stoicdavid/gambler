@@ -10,15 +10,20 @@
   <p><%= f.label :contraseña %><br />
   <%= f.password_field :password %></p>
 
-  <p><%= f.label :confirma_contrseña %><br />
+  <p><%= f.label :confirma_contraseña %><br />
   <%= f.password_field :password_confirmation %></p>
 
 
 <p>
 	<%= f.label :rol %><br /><br />
 	<% for rol in Usuario::ROLES %>
+	<% if (can? :create, resource && (rol == 'admin')) %>
 	<%= check_box_tag "usuario[roles][]",rol, resource.roles.include?(rol) %>
 	<%= rol.humanize %>
+	<% elsif rol != 'admin'  %>
+	<%= check_box_tag "usuario[roles][]",rol, resource.roles.include?(rol) %>
+	<%= rol.humanize %>
+	<% end %>
 	<% end %>
 	<%= hidden_field_tag "usuario[roles][]" %>
 </p>

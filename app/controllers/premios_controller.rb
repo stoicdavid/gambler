@@ -1,4 +1,5 @@
 class PremiosController < ApplicationController
+  load_and_authorize_resource
   # GET /premios
   # GET /premios.xml
   def index

@@ -2,16 +2,19 @@
 
 <table>
   <tr>
-    <th>Titulo |</th>
-    <th>Descripcion |</th>
+    <th>Titulo </th>
+    <th>Descripcion </th>
     <th>No. de boletos </th>
   </tr>
 
 <% @sorteos.each do |sorteo| %>
   <tr>
-    <td><%= link_to 'Show', sorteo %></td>
-    <td><%= link_to 'Edit', edit_sorteo_path(sorteo) %></td>
-    <td><%= link_to 'Destroy', sorteo, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= sorteo.titulo %>
+	<td><%= sorteo.descripcion %></td>
+	<td><%= sorteo.num_boletos %></td>
+    <td>  <%= link_to 'Detalles', sorteo %></td>
+    <td><%= link_to 'Editar', edit_sorteo_path(sorteo) %></td>
+    <td><%= link_to 'Destruir', sorteo, :confirm => '¿Estás seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
