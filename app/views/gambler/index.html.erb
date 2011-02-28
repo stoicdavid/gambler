@@ -1,12 +1,17 @@
 
 
-<h1 class="title"><span>BIENVENIDOS</span></h1>
-<%= image_tag "JuanPabloII.jpg",:size => "120x120",:class =>"left"  %>
-<h1>Sorteos</h1>
 
-<% @sorteos.each do |sorteo| %>
-<div>
-	<br>
-	<h1>Sorteo1</h1>
+<% if usuario_signed_in? %>
+	<%= render 'sorteos/sorteos' %>
+
+<% else %>
+<h1>BIENVENIDOS</h1>
+
+<div id="photos">
+<%= image_tag "juan.png",:size => '170x200'%>	
+<%= image_tag "ninos2.jpg",:size => '200x200'  %>	
+<%= image_tag "abrazo nino.jpg",:size => '200x200' %>	
 </div>
+
+
 <% end %>

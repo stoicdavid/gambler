@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221054512) do
+ActiveRecord::Schema.define(:version => 20110227225948) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "num_boletos"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20110221054512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nombre_usuario"
+    t.integer  "roles_mask"
   end
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true

@@ -12,14 +12,22 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<div id="logo_w1">Instituto Juan Pablo II</div>
+			<%= image_tag "paloma1.png"%>
+			<div id="logo">
+				<%= image_tag "logo.png",:size => '50x65'%>				
+			</div>
+
+			<div id="logo_w1">
+				
+				Instituto Juan Pablo II</div>
 			<div id="logo_w2">Instituto de Educación Integral I.A.P.</div>
-			<div id="header_text">
+			<div id="header_text"><br>
 				<p>Ayuda a construir aulas</p>
 				<a href="http://educacionintegral.org">Visita nuestro sitio</a>
 			</div>
 			<ul>
 			<% if usuario_signed_in? %>
+			Has ingresado como <%= current_usuario.nombre_usuario %>. ¿No eres tú?:
 			  	<%= link_to('Salir', destroy_usuario_session_path) %>        
 			<% else %>
 			  <%= link_to('Ingresar', new_usuario_session_path)  %> |
@@ -30,15 +38,14 @@
 		</div>
 		<div id="content">
 			<div id="left">
-				<% flash.each do |name,msg| %>
-					<%= content_tag :div, msg, :id => "flash#{name}" %>
-				<% end %>
+
+					<% flash.each do |name,msg| %>
+						<%= content_tag :div, msg, :id => "flash#{name}" %>
+					<% end %>					
+
 				<%= yield %>
 
 
-
-			</div>
-			<div id="right">
 
 			</div>
 			<div id="footerline"></div>

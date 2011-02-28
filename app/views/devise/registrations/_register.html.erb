@@ -3,16 +3,26 @@
 
   <p><%= f.label :usuario %><br />
   <%= f.text_field :nombre_usuario %></p>
-<br />
+
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
-<br />
+
   <p><%= f.label :contraseña %><br />
   <%= f.password_field :password %></p>
-<br />
+
   <p><%= f.label :confirma_contrseña %><br />
   <%= f.password_field :password_confirmation %></p>
-<br />
+
+
+<p>
+	<%= f.label :rol %><br /><br />
+	<% for rol in Usuario::ROLES %>
+	<%= check_box_tag "usuario[roles][]",rol, resource.roles.include?(rol) %>
+	<%= rol.humanize %>
+	<% end %>
+	<%= hidden_field_tag "usuario[roles][]" %>
+</p>
+
   <p><%= f.submit "Registrarse" %></p>
 <% end %>
 <br />

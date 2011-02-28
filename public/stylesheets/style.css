@@ -1,5 +1,5 @@
 body {
-	background-color:#a6bf79;
+	background-color:#7696A7;
 	color:#000000;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -13,7 +13,7 @@ body {
 }
 #container {
 	margin: 0px auto;
-	text-align: left;
+	text-align: center;
 	width: 717px;
 }
 a{
@@ -23,30 +23,67 @@ p{
 	margin: 15px 0px;
 }
 /********************** Header ***************************/
+#flashalert{
+	width:400px;
+	background: #FFF6BF;
+	border-top: 2px solid #FFD324;
+	border-bottom: 2px solid #FFD324;
+	text-align: center;
+	margin: 10px auto;
+	padding: 5px 20px;
+	
+}
+
+#flashnotice{
+	width:400px;
+	background: #F0FFF2;
+	border-top: 2px solid #91B6FF;
+	border-bottom: 2px solid #91B6FF;
+	text-align: center;
+	margin: 10px auto;
+	padding: 5px 20px;
+	color: #3E6A7E;
+	text-shadow: rgba(0, 0, 255, 0.90) 0 0 2px;	
+}
+
 #header {
 	margin: 50px 0px 0px 0px;
 	background: #fff url(../images/clouds.jpg) no-repeat center;
 	border:3px solid white;
-	padding:0px 0px 0px 0px;;
+	padding:105px 0px 0px 0px;;
 	width:711px;
-	height:290px;
+	height:200px;
 	position:relative;
 }
 #header ul{
-	background-color:#85a157;
-	width:708px;
+	background-color:#7EB2BA;
+	width:711px;
 	border: 3px solid #FFFFFF;
 	display:block;
-	top:270px;
+	top:306px;
 	position:absolute;
-	margin: 0px 0px 0px 0px;
-	height:22px;
-	padding:5px 0px 0px 0px;
+	margin: 0px 0px 0px -3px;
+	height:16px;
+	padding:0px 0px 0px 0px;
 	text-align:center;
+	color: #fff;
+	text-shadow: rgba(255, 255, 255, 0.85) 0 0 3px;
 }
 #header li{
 	display:inline;	
 }
+
+#header img{
+	margin-left:490px;	
+		margin-top:-160px;	
+}
+
+#logo{
+	margin-left:-1075px;	
+		margin-top:-190px;
+}
+
+
 #header ul a{
 	text-decoration:none;
 	color:#FFFFFF;
@@ -54,13 +91,14 @@ p{
 }
 #header ul a:hover{
 	text-decoration:underline;
-	color:#28556b;
+	color:#E2E9C7;
 }
 #logo_w1,#logo_w2 {
 	font-size: 20px;
 	font-style:serif;
 	color:#FFFFFF;
 	position:absolute;
+	text-shadow: rgba(255, 255, 255, 0.85) 0 0 2px;
 }
 #logo_w1{
 	top:15px;
@@ -80,18 +118,20 @@ p{
 	font-size: 18px;
 	color:#FFFFFF;
 }
-#header_text a{color:#28556b;}
-#header_text a:hover{color:#c77e0c;}
+#header_text a{color:#B0CDD2;}
+#header_text a:hover{color:#C2C7C1;}
 /********************** Content ***************************/
 #content {
 	background-image:url(../images/content_bg.gif);
+
 	width:717px;
+	margin-top:20px;
 }
 img{
 	border-width:0px;
 }
 h1{
-	color:#000000;
+	color:#387E93;
 	font-size:14px;
 	margin: 20px 0px 20px 0px;
 }
@@ -105,15 +145,19 @@ h2{
 }
 #left {
 	float:left;
-	width:717px;
+	width:690px;
 	margin-left:27px;
-	padding: 0px 10px 30px 0px;
+	padding: 0px 0px 0px 0px;
 	display:inline;
 }
 #left a{color:#28556b;}
 #left a:hover{color:#c77e0c;}
-#photos a{
+#photos {
 	margin-right:14px;
+}
+#photos img{
+	margin-left:19px;
+	border: 3px solid #FFFFFF;
 }
 #right {
 	float:right;

@@ -20,13 +20,28 @@
 #
 
 class Usuario < ActiveRecord::Base
+
+  scope :with_role, lambda {|role| {:conditions => "roles_mask & {2**ROLES.index(role.to_s)} > 0"}}
+  ROLES = %w[admin promotor cliente]
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :nombre_usuario
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :nombre_usuario, :roles
   validates :nombre_usuario, :presence => true, :uniqueness => true
-
+  
+  def roles=(roles)
+    self.roles_mask = (roles & ROLES).map {|r| 2**ROLES.index(r)}.sum
+  end
+  
+  def roles
+    ROLES.reject {|r| ((roles_mask || 0) & 2**ROLES.index(r)).zero?}
+  end
+  
+  def rol?(rol)
+    roles.include? rol.to_s
+  end
+  
 end

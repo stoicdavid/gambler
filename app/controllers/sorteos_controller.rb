@@ -1,4 +1,5 @@
 class SorteosController < ApplicationController
+  load_and_authorize_resource
   # GET /sorteos
   # GET /sorteos.xml
   def index
