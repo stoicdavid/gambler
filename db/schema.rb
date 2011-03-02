@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(:version => 20110227225948) do
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
   add_index "usuarios", ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
 
-  add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_2"
   add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_1"
+  add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_2"
 
-  add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_2"
   add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_1"
+  add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_2"
 
-  add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_2"
   add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_1"
+  add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_2"
 
 end

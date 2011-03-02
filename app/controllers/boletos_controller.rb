@@ -1,4 +1,5 @@
 class BoletosController < ApplicationController
+  load_and_authorize_resource
   # GET /boletos
   # GET /boletos.xml
   def index

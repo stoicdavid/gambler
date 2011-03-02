@@ -21,11 +21,14 @@
 
 class Usuario < ActiveRecord::Base
 
+  has_many :promotores, :class_name => "Usuario", :foreign_key => "responsable_id"
+  belongs_to :responsable, :class_name => "Usuario"
+  
   scope :with_role, lambda {|role| {:conditions => "roles_mask & {2**ROLES.index(role.to_s)} > 0"}}
   ROLES = %w[admin promotor cliente]
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :registerable,
+  # :token_authenticatable, :confirmable, :lockable, :registerable, and :timeoutable
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model

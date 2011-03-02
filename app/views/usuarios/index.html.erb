@@ -1,0 +1,12 @@
+
+<p> Nombre de usuario: <%= current_usuario.nombre_usuario %></p>
+<h2>Embajadores</h2>
+<div id="promotores">
+<ul>
+	<% for user in current_usuario.promotores %>
+	<li>
+		<%= user.nombre_usuario %>
+	</li>
+<% end %>	
+</ul>
+</div>

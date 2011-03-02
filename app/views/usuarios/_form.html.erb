@@ -1,0 +1,41 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "error") %>. Valida los datos capturados:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p><%= f.label :usuario %><br />
+  <%= f.text_field :nombre_usuario %></p>
+
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label :contraseña %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :confirma_contraseña %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+
+<p>
+	<%= f.label :rol %><br /><br />
+	<% for rol in Usuario::ROLES %>
+
+	<%= check_box_tag "usuario[roles][]",rol, @usuario.roles.include?(rol) %>
+	<%= rol.humanize %>
+
+	<% end %>
+	<%= hidden_field_tag "usuario[roles][]" %>
+</p>
+	<%= hidden_field_tag "responsable_id",current_usuario.id %>
+  <div class="actions">
+    <%= f.submit "Crear usuario" %>
+  </div>
+<% end %>

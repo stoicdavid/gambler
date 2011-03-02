@@ -185,6 +185,9 @@ h2{
 #right a:hover{
 	color:#85a157;
 }
+#promotores{
+	float:left;
+}
 /********************** Footer ***************************/
 #footerline {
 clear:both;

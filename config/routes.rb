@@ -1,6 +1,11 @@
 Gambler::Application.routes.draw do
-  devise_for :usuarios, :path_names => { :sign_up => "registrarse"}
+  
+  #devise_for :usuarios, :path_names => { :sign_up => "registrarse"}
 
+  devise_for :usuarios, :path_prefix => 'd'
+    
+  resources :usuarios  
+  
   resources :blocks
 
   resources :premios

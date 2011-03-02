@@ -27,11 +27,17 @@
 			</div>
 			<ul>
 			<% if usuario_signed_in? %>
-			Has ingresado como <%= current_usuario.nombre_usuario %>. ¿No eres tú?:
-			  	<%= link_to('Salir', destroy_usuario_session_path) %>        
+			Has ingresado como <%= current_usuario.nombre_usuario %>. 
+
+			    <%= link_to('Mi cuenta', edit_usuario_path(current_usuario) ) %>
+			¿No eres tú?
+				<%= link_to('Salir', destroy_usuario_session_path) %>
+				<% if can? :create, @usuario %>
+				  |<%= link_to('Registrar', new_usuario_path(:responsable_id => current_usuario.id)) %>
+				<% end %>
 			<% else %>
-			  <%= link_to('Ingresar', new_usuario_session_path)  %> |
-			  <%= link_to('Registrarse', new_usuario_registration_path) %>
+			  <%= link_to('Ingresar', new_usuario_session_path)  %> 
+
 			<% end %>
 
 			</ul>
