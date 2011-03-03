@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227225948) do
+ActiveRecord::Schema.define(:version => 20110303061907) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "num_boletos"
@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(:version => 20110227225948) do
     t.integer  "sorteo_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "promotor_id"
   end
 
   add_index "blocks", ["sorteo_id"], :name => "sorteo_id"
+  add_index "blocks", ["promotor_id"], :name => "promotor_id"
 
   create_table "boletos", :force => true do |t|
     t.integer  "folio"
@@ -73,18 +75,23 @@ ActiveRecord::Schema.define(:version => 20110227225948) do
     t.datetime "updated_at"
     t.string   "nombre_usuario"
     t.integer  "roles_mask"
+    t.integer  "responsable_id"
   end
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
   add_index "usuarios", ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
+  add_index "usuarios", ["responsable_id"], :name => "responsable_id"
 
+  add_foreign_key "blocks", ["promotor_id"], "usuarios", ["id"], :name => "blocks_ibfk_3"
   add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_1"
   add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_2"
 
-  add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_1"
   add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_2"
+  add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_1"
 
-  add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_1"
   add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_2"
+  add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_1"
+
+  add_foreign_key "usuarios", ["responsable_id"], "usuarios", ["id"], :name => "usuarios_ibfk_1"
 
 end

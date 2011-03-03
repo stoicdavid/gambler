@@ -1,0 +1,11 @@
+<ul>
+
+	<li><%= f.label "Cantidad de boletos" %><br>
+		<%= f.text_field :num_boletos %>
+		<%= f.collection_select :promotor_id, current_usuario.promotores, :id, :nombre_usuario,:prompt => "Embajador" %>
+	</li>
+
+</ul>
+<br>
+
+<p><%# link_to_add_fields "Agregar Block", f, :blocks %></p>

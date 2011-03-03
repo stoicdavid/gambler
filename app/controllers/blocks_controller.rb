@@ -1,4 +1,5 @@
 class BlocksController < ApplicationController
+  load_and_authorize_resource
   # GET /blocks
   # GET /blocks.xml
   def index
@@ -25,7 +26,7 @@ class BlocksController < ApplicationController
   # GET /blocks/new.xml
   def new
     @block = Block.new
-
+    @boleto = @block.boletos.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @block }

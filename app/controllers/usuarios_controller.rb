@@ -25,7 +25,10 @@ class UsuariosController < ApplicationController
   def create
     @responsable = Usuario.find(params[:responsable_id])
     @usuario = Usuario.new(params[:usuario])
-    @usuario.responsable_id = @responsable.id
+    if @usuario.rol?(:promotor)
+      @usuario.responsable_id = @responsable.id      
+    end
+
     respond_to do |format|
      if @usuario.save
        format.html { redirect_to(@usuario, :notice => 'Usuario creado') }

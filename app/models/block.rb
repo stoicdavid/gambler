@@ -12,4 +12,7 @@
 #
 
 class Block < ActiveRecord::Base
+  belongs_to :sorteo
+  belongs_to :promotor, :class_name => "Usuario", :foreign_key => "promotor_id"
+  has_many  :boletos
 end

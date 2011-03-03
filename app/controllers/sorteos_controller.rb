@@ -27,7 +27,9 @@ class SorteosController < ApplicationController
   # GET /sorteos/new.xml
   def new
     @sorteo = Sorteo.new
-
+    3.times {@block = @sorteo.blocks.build}
+    @sorteo.build_premio
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @sorteo }
@@ -43,7 +45,7 @@ class SorteosController < ApplicationController
   # POST /sorteos.xml
   def create
     @sorteo = Sorteo.new(params[:sorteo])
-
+    
     respond_to do |format|
       if @sorteo.save
         format.html { redirect_to(@sorteo, :notice => 'Sorteo was successfully created.') }

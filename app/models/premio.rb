@@ -13,4 +13,5 @@
 #
 
 class Premio < ActiveRecord::Base
+  belongs_to :sorteo 
 end

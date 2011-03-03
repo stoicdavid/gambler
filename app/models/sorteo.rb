@@ -12,4 +12,13 @@
 #
 
 class Sorteo < ActiveRecord::Base
+
+  has_many :blocks, :dependent => :destroy
+  has_one :premio, :dependent => :destroy
+  
+  accepts_nested_attributes_for :premio, :reject_if => lambda { |a| a[:nombre].blank?}, :allow_destroy => true
+  accepts_nested_attributes_for :blocks, :reject_if => lambda { |a| a[:num_boletos].blank?}, :allow_destroy => true
+  
+  
+  
 end

@@ -1,9 +1,5 @@
- $(function(){
-	$("#parallax").jparallax({},
-	{xtravel:-0.05,ytravel:0},
-	{xtravel:-0.09,ytravel:0},
-	{xtravel:0.1,ytravel:0.9},
-	{xtravel:-0.09,ytravel:0}
-	);
-
- });
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+}

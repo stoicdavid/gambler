@@ -10,6 +10,39 @@
       </ul>
     </div>
   <% end %>
+<p>
+	<%= f.label "Cantidad de boletos" %></p>
+	<%= f.text_field :num_boletos %>
+</p>
+<h1>Boletos</h1>
+<%= f.fields_for :boletos do |builder| %>
+
+<p><%= builder.label :folio  %><br>
+<%= builder.text_field :folio  %></p>
+<p>
+<%= builder.label :nombre  %><br>
+<%= builder.text_field :nombre  %>
+</p>
+<p>
+<%= builder.label "RFC"  %><br>
+<%= builder.text_field :rfc  %></p>
+<p>
+<%= builder.label "Dirección"  %><br>
+<%= builder.text_field :dir  %></p>
+<p>
+<%= builder.label :cp  %><br>
+<%= builder.text_field :cp  %></p>
+<p>
+<%= builder.label :ciudad  %><br>
+<%= builder.text_field :ciudad  %></p>
+<p>
+<%= builder.label :telefono  %><br>
+<%= builder.text_field :telefono  %></p>
+<p>
+<%= builder.label :email  %><br>
+<%= builder.text_field :email  %></p>
+
+<% end %>
 
   <div class="actions">
     <%= f.submit %>

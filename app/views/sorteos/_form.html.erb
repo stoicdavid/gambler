@@ -1,7 +1,7 @@
 <%= form_for(@sorteo) do |f| %>
   <% if @sorteo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sorteo.errors.count, "error") %> prohibited this sorteo from being saved:</h2>
+      <h2><%= pluralize(@sorteo.errors.count, "error") %> Verifica los datos del sorteo:</h2>
 
       <ul>
       <% @sorteo.errors.full_messages.each do |msg| %>
@@ -11,14 +11,26 @@
     </div>
   <% end %>
 
-<p><%= f.label :titulo %>
+
+<p><%= f.label :titulo %><br>
 	<%= f.text_field :titulo %></p>
-<p><%= f.label :descripcion %>
+<p><%= f.label :descripcion %><br>
 	<%= f.text_field :descripcion %></p>
-<p><%= f.label :numero_de_boletos %>
+<p><%= f.label :numero_de_boletos %><br>
 	<%= f.text_field :num_boletos %></p>
+	<h1>Premio</h1>
+<%= f.fields_for :premio do |builder| %>
+	<%= render 'campos_premio', :f => builder %>
+<% end %>
+	<h1>Blocks</h1>
+<%= f.fields_for :blocks do |builder| %>
+
+<%= render 'campos_block', :f => builder %>
+
+<% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Actualizar Sorteo" %>
   </div>
+
 <% end %>
