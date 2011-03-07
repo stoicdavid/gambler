@@ -13,6 +13,6 @@
 
 class Block < ActiveRecord::Base
   belongs_to :sorteo
-  belongs_to :promotor, :class_name => "Usuario", :foreign_key => "promotor_id"
+  belongs_to :promotor
   has_many  :boletos
 end

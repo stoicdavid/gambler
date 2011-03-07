@@ -1,0 +1,34 @@
+<h1>Mis blocks</h1>
+
+<table>
+  <tr>
+	<th>Sorteo</th>
+    <th>Premio</th>
+    <th>Boletos</th>
+    <th>Folio Min</th>
+	<th>Folio Max</th>
+	<th>Colocaciones</th>
+
+  </tr>
+
+<% @blocks.each do |block| %>
+  <tr>
+	<td><%= block.sorteo.titulo %></td>
+	<td><%= block.sorteo.premio.nombre %></td>
+	<td><%= block.num_boletos %></td>
+	<td><%= block.folio %></td>
+	<td><%= block.folio %></td>
+	<td><%= block.folio %></td>
+	
+    <td><%= link_to 'Show', block %></td>
+<% if can? :read, block %>
+    <td><%= link_to 'Edit', edit_block_path(block) %></td>
+<% end %>
+    <td><%= link_to 'Destroy', block, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Block', new_block_path %>

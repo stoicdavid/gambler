@@ -9,6 +9,10 @@ class Ability
          can :manage, :all
        else
          can :read, :all
+         can :create, Boleto
+         can :update, Boleto do |ticket|
+          ticket.try(:user) == user
+         end
        end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

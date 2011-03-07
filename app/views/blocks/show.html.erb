@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
+<%= form_for(@block) do |f| %>
 
+<%= f.label "blocks" %>
 
+<h1>Boletos</h1>
+<%= f.fields_for :boletos do |builder| %>
+
+<%# render :partial => 'campos_boleto', :f => builder %>
+
+<% end %>
+<p><%# link_to_add_fields("Agregar Boleto", f, :boletos)%></p>
+
+<% end %>
 <%= link_to 'Edit', edit_block_path(@block) %> |
 <%= link_to 'Back', blocks_path %>

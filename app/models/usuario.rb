@@ -23,8 +23,9 @@ class Usuario < ActiveRecord::Base
 
   has_many :promotores, :class_name => "Usuario", :foreign_key => "responsable_id"
   belongs_to :responsable, :class_name => "Usuario"
-  has_many :blocks
+  has_many :blocks, :foreign_key => "promotor_id"
   
+  scope :promotor_id
   scope :with_role, lambda {|role| {:conditions => "roles_mask & {2**ROLES.index(role.to_s)} > 0"}}
   ROLES = %w[admin promotor cliente]
   # Include default devise modules. Others available are:

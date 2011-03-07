@@ -27,7 +27,7 @@ class SorteosController < ApplicationController
   # GET /sorteos/new.xml
   def new
     @sorteo = Sorteo.new
-    3.times {@block = @sorteo.blocks.build}
+    10.times {@block = @sorteo.blocks.build.num_boletos=10}
     @sorteo.build_premio
     
     respond_to do |format|
@@ -39,6 +39,7 @@ class SorteosController < ApplicationController
   # GET /sorteos/1/edit
   def edit
     @sorteo = Sorteo.find(params[:id])
+    @premio = Premio.find_by_sorteo_id(params[:id])
   end
 
   # POST /sorteos
