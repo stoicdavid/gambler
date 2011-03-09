@@ -1,7 +1,7 @@
 <%= form_for(@block) do |f| %>
   <% if @block.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@block.errors.count, "error") %> prohibited this block from being saved:</h2>
+      <h2><%= pluralize(@block.errors.count, "error") %>. Revisa los siguientes datos:</h2>
 
       <ul>
       <% @block.errors.full_messages.each do |msg| %>
@@ -11,15 +11,14 @@
     </div>
   <% end %>
 <p>
-	<%= f.label "Cantidad de boletos" %></p>
-	<%= f.text_field :num_boletos %>
+<%= render 'campos_block',:f => f %>
 </p>
-<h1>Boletos</h1>
-<%= f.fields_for :boletos do |builder| %>
 
-<%= render :partial => 'campos_boleto' %>
+<%# f.fields_for :boletos do |builder| %>
 
-<% end %>
+<%# render 'boletos/campos_boleto', :f => builder %>
+
+<%# end %>
 
   <div class="actions">
     <%= f.submit %>

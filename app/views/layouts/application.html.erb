@@ -32,7 +32,7 @@
 			    <%= link_to('Mi cuenta', edit_usuario_path(current_usuario) ) %>
 			¿No eres tú?
 				<%= link_to('Salir', destroy_usuario_session_path) %>
-				<% if can? :create, @usuario %>
+				<% if can? :create, Usuario %>
 				  |<%= link_to('Registrar', new_usuario_path(:responsable_id => current_usuario.id)) %>
 				<% end %>
 			<% else %>

@@ -5,9 +5,13 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
        user ||= Usuario.new # guest user (not logged in)
-       if user.rol?(:admin)
+       if user.nombre_usuario.eql?("rociovaldez")
          can :manage, :all
-       else
+       end
+       if user.rol?(:admin)
+         can :manage, [Boleto,Block,Usuario]
+       end
+       if
          can :read, :all
          can :create, Boleto
          can :update, Boleto do |ticket|

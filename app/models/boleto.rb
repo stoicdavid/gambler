@@ -19,4 +19,14 @@
 
 class Boleto < ActiveRecord::Base
   belongs_to :block
+  
+  def self.asigna_folio
+    
+    if maximum("folio").nil?
+      1
+    else
+      maximum("folio") + 1
+    end
+  end
+  
 end

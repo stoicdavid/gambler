@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110221052338
+# Schema version: 20110309070412
 #
 # Table name: usuarios
 #
@@ -17,6 +17,9 @@
 #  last_sign_in_ip      :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
+#  nombre_usuario       :string(255)
+#  roles_mask           :integer(4)
+#  responsable_id       :integer(4)
 #
 
 class Usuario < ActiveRecord::Base
@@ -26,7 +29,7 @@ class Usuario < ActiveRecord::Base
   has_many :blocks, :foreign_key => "promotor_id"
   
   scope :promotor_id
-  scope :with_role, lambda {|role| {:conditions => "roles_mask & {2**ROLES.index(role.to_s)} > 0"}}
+  scope :with_role, lambda {|role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"}}
   ROLES = %w[admin promotor cliente]
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable, :registerable, and :timeoutable

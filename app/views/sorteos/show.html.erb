@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Sorteo <%= @sorteo.titulo %></h1>
 
-<%= link_to 'Edit', edit_sorteo_path(@sorteo) %> |
-<%= link_to 'Back', sorteos_path %>
+<% if current_usuario.blocks.count>0 %>
+	<%= render 'blocks/blocks' %>
+<% end %>
+<%= link_to 'Agregar Block', new_block_path %><br><br>
+<% if can? :manage, @sorteo %>
+	<%= link_to 'Editar', edit_sorteo_path(@sorteo) %> |
+<% end %>
+<%= link_to 'Regresar', sorteos_path %>

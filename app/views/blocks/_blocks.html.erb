@@ -19,16 +19,18 @@
 	<td><%= block.folio %></td>
 	<td><%= block.folio %></td>
 	<td><%= block.folio %></td>
-	
+<% if can? :read, block %>	
     <td><%= link_to 'Show', block %></td>
-<% if can? :read, block %>
-    <td><%= link_to 'Edit', edit_block_path(block) %></td>
 <% end %>
+<% if can? :manage, block %>
+    <td><%= link_to 'Edit', edit_block_path(block) %></td>
+
     <td><%= link_to 'Destroy', block, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Block', new_block_path %>
+<%= link_to 'Agregar Block', new_block_path %>

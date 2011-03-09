@@ -1,0 +1,31 @@
+<h1>Boletos</h1>
+
+<table>
+  <tr>
+    <th>Folio</th>
+    <th>Nombre</th>
+    <th>RFC</th>
+    <th>Dir</th>
+    <th>CP</th>
+    <th>Ciudad</th>
+    <th>Telefono</th>
+    <th>Email</th>
+  </tr>
+
+<% boletos.each do |boleto| %>
+  <tr>
+	<td>boleto.folio</td>
+	<td>boleto.nombre</td>
+	<td>boleto.rfc</td>
+	<td>boleto.dir</td>
+	<td>boleto.cp</td>
+    <td><%= link_to 'Show', boleto %></td>
+    <td><%= link_to 'Edit', edit_boleto_path(boleto) %></td>
+    <td><%= link_to 'Destroy', boleto, :confirm => 'Estas seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Agregar Boleto', new_boleto_path %>

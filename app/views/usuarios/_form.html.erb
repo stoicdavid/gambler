@@ -27,10 +27,13 @@
 <p>
 	<%= f.label :rol %><br /><br />
 	<% for rol in Usuario::ROLES %>
-
-	<%= check_box_tag "usuario[roles][]",rol, @usuario.roles.include?(rol) %>
-	<%= rol.humanize %>
-
+		<% if (rol.eql?("admin") && (can? :manage, Sorteo))%>
+			<%= check_box_tag "usuario[roles][]",:admin, @usuario.roles.include?(:admin) %>
+			<%= rol.humanize %>
+		<% elsif !(rol.eql?"admin") %>	
+			<%= check_box_tag "usuario[roles][]",rol, @usuario.roles.include?(rol) %>
+			<%= rol.humanize %>
+		<% end %>
 	<% end %>
 	<%= hidden_field_tag "usuario[roles][]" %>
 </p>

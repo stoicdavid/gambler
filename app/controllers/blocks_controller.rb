@@ -16,6 +16,7 @@ class BlocksController < ApplicationController
   def show
     @block = Block.find(params[:id])
 
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @block }
@@ -26,6 +27,10 @@ class BlocksController < ApplicationController
   # GET /blocks/new.xml
   def new
     @block = Block.new
+    @block.sorteo_id = params[:id]
+    @block.num_boletos = 10
+    @block.folio = Boleto.asigna_folio
+    @block.folio_max = Boleto.asigna_folio + 9
     @boleto = @block.boletos.build
     respond_to do |format|
       format.html # new.html.erb

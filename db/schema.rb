@@ -10,15 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303061907) do
+ActiveRecord::Schema.define(:version => 20110309070412) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "num_boletos"
     t.integer  "folio"
-    t.integer  "sorteo_id",   :null => false
+    t.integer  "sorteo_id",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "promotor_id"
+    t.integer  "folio_max"
+    t.integer  "colocaciones"
   end
 
   add_index "blocks", ["sorteo_id"], :name => "sorteo_id"
@@ -82,15 +84,15 @@ ActiveRecord::Schema.define(:version => 20110303061907) do
   add_index "usuarios", ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
   add_index "usuarios", ["responsable_id"], :name => "responsable_id"
 
-  add_foreign_key "blocks", ["promotor_id"], "usuarios", ["id"], :name => "blocks_ibfk_3"
   add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_1"
   add_foreign_key "blocks", ["sorteo_id"], "sorteos", ["id"], :name => "blocks_ibfk_2"
+  add_foreign_key "blocks", ["promotor_id"], "usuarios", ["id"], :name => "blocks_ibfk_3"
 
-  add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_2"
   add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_1"
+  add_foreign_key "boletos", ["block_id"], "blocks", ["id"], :name => "boletos_ibfk_2"
 
-  add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_2"
   add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_1"
+  add_foreign_key "premios", ["sorteo_id"], "sorteos", ["id"], :name => "premios_ibfk_2"
 
   add_foreign_key "usuarios", ["responsable_id"], "usuarios", ["id"], :name => "usuarios_ibfk_1"
 

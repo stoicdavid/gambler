@@ -13,17 +13,17 @@
 	<td><%= sorteo.descripcion %></td>
 	<td><%= sorteo.num_boletos %></td>
     <td>  <%= link_to 'Detalles', sorteo %></td>
-<% if can? :update, sorteo %>
+<% if can? :manage, sorteo %>
     <td><%= link_to 'Editar', edit_sorteo_path(sorteo) %></td>
-<% end %>
-<% if can? :destroy, sorteo %>
     <td><%= link_to 'Destruir', sorteo, :confirm => '¿Estás seguro?', :method => :delete %></td>
 <% end %>
   </tr>
 <% end %>
 </table>
 
+
+
 <br />
-<% if can? :create, @sorteos %>
+<% if can? :manage, @sorteos %>
 <%= link_to 'Agregar Sorteo', new_sorteo_path %>
 <% end %>

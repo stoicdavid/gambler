@@ -1,7 +1,7 @@
 <%= form_for(@boleto) do |f| %>
   <% if @boleto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@boleto.errors.count, "error") %> prohibited this boleto from being saved:</h2>
+      <h2><%= pluralize(@boleto.errors.count, "error") %> Introduce los datos correctamente:</h2>
 
       <ul>
       <% @boleto.errors.full_messages.each do |msg| %>
@@ -10,6 +10,40 @@
       </ul>
     </div>
   <% end %>
+<p>
+	<%= f.label :folio %>
+	<%= f.text_field :folio %>
+</p>
+
+<p>
+	<%= f.label :nombre %>
+	<%= f.text_field :nombre %>
+</p>
+<p>
+	<%= f.label :rfc %>
+	<%= f.text_field :rfc %>
+</p>
+<p>
+	<%= f.label :dir %>
+	<%= f.text_field :dir %>
+</p>
+<p>
+	<%= f.label :cp %>
+	<%= f.text_field :cp %>
+</p>
+<p>
+	<%= f.label :ciudad %>
+	<%= f.text_field :ciudad %>
+</p>
+<p>
+	<%= f.label :telefono %>
+	<%= f.text_field :telefono %>
+</p>
+<p>
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+</p>
+
 
   <div class="actions">
     <%= f.submit %>

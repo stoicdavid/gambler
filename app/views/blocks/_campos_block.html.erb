@@ -1,0 +1,15 @@
+
+		<%= f.label "Folio Mínimo" %>
+		<%= f.text_field :folio %><br><br>
+		<%= f.label "Folio Máximo" %>
+		<%= f.text_field :folio_max %><br><br>		
+		<%= f.label "Cantidad de boletos" %>
+		<%= f.text_field :num_boletos %><br><br>
+		<%= f.label "Colocaciones" %>
+		<%= f.text_field :colocaciones %><br><br>
+		<%= f.collection_select :promotor_id, current_usuario.promotores, :id, :nombre_usuario,:prompt => "Embajador" %>
+		<%= hidden_field_tag "sorteo_id", @block.id  %>
+	
+<br>
+
+

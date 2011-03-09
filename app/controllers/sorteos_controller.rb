@@ -16,7 +16,10 @@ class SorteosController < ApplicationController
   # GET /sorteos/1.xml
   def show
     @sorteo = Sorteo.find(params[:id])
-
+    @blocks = Array.new
+    current_usuario.promotores do |promotor|
+      @blocks << promotor.blocks
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @sorteo }
@@ -27,7 +30,7 @@ class SorteosController < ApplicationController
   # GET /sorteos/new.xml
   def new
     @sorteo = Sorteo.new
-    10.times {@block = @sorteo.blocks.build.num_boletos=10}
+    @block = @sorteo.blocks.build.num_boletos=10
     @sorteo.build_premio
     
     respond_to do |format|
@@ -40,6 +43,7 @@ class SorteosController < ApplicationController
   def edit
     @sorteo = Sorteo.find(params[:id])
     @premio = Premio.find_by_sorteo_id(params[:id])
+    @block = @sorteo.blocks
   end
 
   # POST /sorteos

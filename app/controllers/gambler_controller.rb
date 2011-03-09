@@ -2,7 +2,9 @@ class GamblerController < ApplicationController
 load_and_authorize_resource
   def index
     @sorteos = Sorteo.all
-    @blocks = current_usuario.blocks
+    if usuario_signed_in?
+      @blocks ||= current_usuario.blocks
+    end
   end
   
 end

@@ -25,7 +25,7 @@
 	<h1>Blocks</h1>
 <%= f.fields_for :blocks do |builder| %>
 
-<%= render 'campos_block', :f => builder %>
+<%= render 'blocks/campos_block', :f => builder %>
 
 <% end %>
 <p><%= link_to_add_fields("Agregar Block", f, :blocks)%></p>

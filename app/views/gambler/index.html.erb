@@ -3,9 +3,12 @@
 
 <% if usuario_signed_in? %>
 	<%= render 'sorteos/sorteos' %>
-	
-	<%= render 'blocks/blocks' %>
-	
+
+<% if current_usuario.rol? (:admin) %>
+
+<%= render 'usuarios/usuarios' %>
+
+<% end %>
 
 <% else %>
 <h1>BIENVENIDOS</h1>
