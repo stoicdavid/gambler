@@ -27,7 +27,7 @@ class BlocksController < ApplicationController
   # GET /blocks/new.xml
   def new
     @block = Block.new
-    @block.sorteo_id = params[:id]
+    @block.sorteo_id = params[:sorteo_id]
     @block.num_boletos = 10
     @block.folio = Boleto.asigna_folio
     @block.folio_max = Boleto.asigna_folio + 9

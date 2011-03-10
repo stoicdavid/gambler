@@ -20,6 +20,8 @@
 class Boleto < ActiveRecord::Base
   belongs_to :block
   
+  validates_uniqueness_of :folio, :on => :create
+  
   def self.asigna_folio
     
     if maximum("folio").nil?

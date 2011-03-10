@@ -8,7 +8,8 @@
 		<%= f.label "Colocaciones" %>
 		<%= f.text_field :colocaciones %><br><br>
 		<%= f.collection_select :promotor_id, current_usuario.promotores, :id, :nombre_usuario,:prompt => "Embajador" %>
-		<%= hidden_field_tag "sorteo_id", @block.id  %>
+		<%# hidden_field_tag "sorteo_id", params[:sorteo_id]  %>
+		<%= f.hidden_field :sorteo_id %>
 	
 <br>
 

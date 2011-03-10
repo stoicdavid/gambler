@@ -26,7 +26,8 @@ class BoletosController < ApplicationController
   # GET /boletos/new.xml
   def new
     @boleto = Boleto.new
-
+    @boleto.block_id=params[:id]
+    @boleto.folio=Boleto.asigna_folio
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @boleto }
@@ -45,7 +46,7 @@ class BoletosController < ApplicationController
 
     respond_to do |format|
       if @boleto.save
-        format.html { redirect_to(@boleto, :notice => 'Boleto was successfully created.') }
+        format.html { redirect_to(@boleto.block, :notice => 'Boleto was successfully created.') }
         format.xml  { render :xml => @boleto, :status => :created, :location => @boleto }
       else
         format.html { render :action => "new" }

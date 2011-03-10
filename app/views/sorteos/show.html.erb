@@ -5,7 +5,7 @@
 <% if current_usuario.blocks.count>0 %>
 	<%= render 'blocks/blocks' %>
 <% end %>
-<%= link_to 'Agregar Block', new_block_path %><br><br>
+<%= link_to 'Agregar Block', :controller => "blocks",:action => "new",:sorteo_id => @sorteo.id %><br><br>
 <% if can? :manage, @sorteo %>
 	<%= link_to 'Editar', edit_sorteo_path(@sorteo) %> |
 <% end %>
