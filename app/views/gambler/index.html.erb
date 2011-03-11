@@ -3,21 +3,14 @@
 
 <% if usuario_signed_in? %>
 	<%= render 'sorteos/sorteos' %>
-
-<% if current_usuario.rol? (:admin) %>
-
-<%= render 'usuarios/usuarios' %>
-
-<% end %>
-
+	<% if current_usuario.rol? (:admin) %>
+		<%= render 'usuarios/usuarios' %>
+	<% end %>
 <% else %>
 <h1>BIENVENIDOS</h1>
-
 <div id="photos">
-<%= image_tag "juan.png",:size => '170x200'%>	
-<%= image_tag "ninos2.jpg",:size => '200x200'  %>	
-<%= image_tag "abrazo nino.jpg",:size => '200x200' %>	
+	<%= image_tag "juan.png",:size => '170x200'%>	
+	<%= image_tag "ninos2.jpg",:size => '200x200'  %>	
+	<%= image_tag "abrazo nino.jpg",:size => '200x200' %>	
 </div>
-
-
 <% end %>

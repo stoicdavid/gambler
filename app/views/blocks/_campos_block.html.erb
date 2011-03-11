@@ -7,7 +7,9 @@
 		<%= f.text_field :num_boletos %><br><br>
 		<%= f.label "Colocaciones" %>
 		<%= f.text_field :colocaciones %><br><br>
-		<%= f.collection_select :promotor_id, current_usuario.promotores, :id, :nombre_usuario,:prompt => "Embajador" %>
+		<% promotores = current_usuario.promotores %>
+		<% promotores << current_usuario %>
+		<%= f.collection_select :promotor_id, promotores, :id, :nombre_usuario,:prompt => "Embajador" %>
 		<%# hidden_field_tag "sorteo_id", params[:sorteo_id]  %>
 		<%= f.hidden_field :sorteo_id %>
 	

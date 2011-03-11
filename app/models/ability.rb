@@ -11,12 +11,12 @@ class Ability
        if user.rol?(:admin)
          can :manage, [Boleto,Block,Usuario]
        end
-       if
+       if user
          can :read, :all
          can :create, Boleto
          can :update, Boleto do |ticket|
           ticket.try(:user) == user
-         end
+        end
        end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

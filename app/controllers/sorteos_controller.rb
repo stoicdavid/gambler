@@ -16,10 +16,7 @@ class SorteosController < ApplicationController
   # GET /sorteos/1.xml
   def show
     @sorteo = Sorteo.find(params[:id])
-    @blocks = Array.new
-    current_usuario.promotores do |promotor|
-      @blocks << promotor.blocks
-    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @sorteo }

@@ -3,8 +3,8 @@ class BlocksController < ApplicationController
   # GET /blocks
   # GET /blocks.xml
   def index
-    @blocks = Block.all
-
+    #@blocks  = Block.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @blocks }
