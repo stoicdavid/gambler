@@ -25,9 +25,10 @@ class BoletosController < ApplicationController
   # GET /boletos/new
   # GET /boletos/new.xml
   def new
-    @boleto = Boleto.new
-    @boleto.block_id=params[:id]
-    @boleto.folio=Boleto.asigna_folio
+    @boleto = Block.find(params[:id]).boletos.build
+    folio = @boleto.block.folio
+    folio += @boleto.block.boletos.count +1
+    @boleto.folio = folio
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @boleto }
@@ -75,10 +76,11 @@ class BoletosController < ApplicationController
   # DELETE /boletos/1.xml
   def destroy
     @boleto = Boleto.find(params[:id])
+    @block = @boleto.block
     @boleto.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to(boletos_url) }
+      format.html { redirect_to(@block)  }
       format.xml  { head :ok }
     end
   end

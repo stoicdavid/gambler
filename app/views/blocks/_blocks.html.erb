@@ -19,10 +19,10 @@
 	<td><%= block.folio %></td>
 	<td><%= block.folio_max %></td>
 	<td><%= block.boletos.count %></td>
-    <td><%= link_to 'Show', block %></td>
+    <td><%= link_to 'Detalles', block %></td>
 	<% if can? :manage, block %>
-	    <td><%= link_to 'Edit', edit_block_path(block) %></td>
-	    <td><%= link_to 'Destroy', block, :confirm => 'Are you sure?', :method => :delete %></td>
+	    <td><%= link_to 'Editar', edit_block_path(block) %></td>
+	    <td><%= link_to 'Destruir', block, :confirm => 'Are you sure?', :method => :delete %></td>
 	<% end %>
   </tr>
 <% end %>

@@ -3,8 +3,8 @@
 
 Cantidad de Boletos <%= @block.num_boletos %>
 
-
-<%= render "boletos/boletos", :boletos => @block.boletos %>
+<% @boletos = @block.boletos %>
+<%= render "boletos/boletos", :collection => @boletos %>
 
 <p><%# link_to_add_fields("Agregar Boleto", f, :boletos)%></p>
 
