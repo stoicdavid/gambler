@@ -39,8 +39,9 @@ class SorteosController < ApplicationController
   # GET /sorteos/1/edit
   def edit
     @sorteo = Sorteo.find(params[:id])
-    @premio = Premio.find_by_sorteo_id(params[:id])
-    @block = @sorteo.blocks
+    
+    @sorteo.premio.nil? ? @premio = @sorteo.build_premio : @premio = @sorteo.premio
+    
   end
 
   # POST /sorteos
